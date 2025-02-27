@@ -8,7 +8,23 @@
 
   <ItemGroup>
     <PackageReference Include="Carter" Version="8.2.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MonolithicBase.Application\MonolithicBase.Application.csproj" />
+    <ProjectReference Include="..\MonolithicBase.Contract\MonolithicBase.Contract.csproj" />
+    <ProjectReference Include="..\MonolithicBase.Infrastructure.Dapper\MonolithicBase.Infrastructure.Dapper.csproj" />
+    <ProjectReference Include="..\MonolithicBase.Infrastructure\MonolithicBase.Infrastructure.csproj" />
+    <ProjectReference Include="..\MonolithicBase.Persistence\MonolithicBase.Persistence.csproj" />
+    <ProjectReference Include="..\MonolithicBase.Presentation\MonolithicBase.Presentation.csproj" />
   </ItemGroup>
 
 </Project>

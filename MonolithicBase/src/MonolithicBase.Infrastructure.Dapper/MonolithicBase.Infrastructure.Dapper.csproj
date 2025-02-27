@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MonolithicBase.Domain\MonolithicBase.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

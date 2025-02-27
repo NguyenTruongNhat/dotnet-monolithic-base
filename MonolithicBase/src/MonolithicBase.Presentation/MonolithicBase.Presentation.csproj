@@ -12,4 +12,10 @@
     <PackageReference Include="Carter" Version="8.2.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MonolithicBase.Application\MonolithicBase.Application.csproj" />
+    <ProjectReference Include="..\MonolithicBase.Contract\MonolithicBase.Contract.csproj" />
+    <ProjectReference Include="..\MonolithicBase.Infrastructure\MonolithicBase.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
