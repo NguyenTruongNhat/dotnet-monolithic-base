@@ -3,8 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using MonolithicBase.Domain.Abstractions;
+using MonolithicBase.Domain.Abstractions.Repositories;
 using MonolithicBase.Domain.Entities.Identity;
 using MonolithicBase.Persistence.DependencyInjection.Options;
+using MonolithicBase.Persistence.Repositories;
 
 namespace MonolithicBase.Persistence.DependencyInjection.Extensions;
 public static class ServiceCollectionExtensions
@@ -76,4 +79,11 @@ public static class ServiceCollectionExtensions
         .Bind(section)
         .ValidateDataAnnotations()
         .ValidateOnStart();
+
+    public static void AddRepositoryBaseConfiguration(this IServiceCollection services)
+    {
+        services.AddTransient(typeof(IUnitOfWork), typeof(EFUnitOfWork));
+        services.AddTransient(typeof(IRepositoryBase<,>), typeof(RepositoryBase<,>));
+
+    }
 }
