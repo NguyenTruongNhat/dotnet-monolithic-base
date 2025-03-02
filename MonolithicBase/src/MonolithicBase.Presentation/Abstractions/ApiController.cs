@@ -5,8 +5,7 @@ using MonolithicBase.Contract.Abstractions.Shared;
 
 namespace MonolithicBase.Presentation.Abstractions;
 [ApiController]
-[Route("api/[controller]")]
-//[Route("api/v{version:apiVersion}/[controller]")]
+[Route("api/v{version:apiVersion}/[controller]")]
 
 public abstract class ApiController : ControllerBase
 {

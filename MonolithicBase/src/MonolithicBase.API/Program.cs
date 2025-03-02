@@ -1,3 +1,5 @@
+using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
+using MonolithicBase.API.DependencyInjection.Extensions;
 using MonolithicBase.Application.DependencyInjection.Extensions;
 using MonolithicBase.Persistence.DependencyInjection.Extensions;
 using MonolithicBase.Persistence.DependencyInjection.Options;
@@ -30,17 +32,27 @@ builder.Services.AddSqlConfiguration();
 builder.Services.AddRepositoryBaseConfiguration();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+builder.Services
+        .AddSwaggerGenNewtonsoftSupport()
+        .AddFluentValidationRulesToSwagger()
+        .AddEndpointsApiExplorer()
+        .AddSwagger();
+
+builder.Services
+    .AddApiVersioning(options => options.ReportApiVersions = true)
+    .AddApiExplorer(options =>
+    {
+        options.GroupNameFormat = "'v'VVV";
+        options.SubstituteApiVersionInUrl = true;
+    });
+
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+if (builder.Environment.IsDevelopment() || builder.Environment.IsStaging())
+    app.ConfigureSwagger();
 
 app.UseHttpsRedirection();
 

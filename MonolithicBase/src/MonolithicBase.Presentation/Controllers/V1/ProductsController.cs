@@ -1,10 +1,13 @@
-﻿using MediatR;
+﻿using Asp.Versioning;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MonolithicBase.Contract.Services.V1.Product;
 using MonolithicBase.Presentation.Abstractions;
 
 namespace MonolithicBase.Presentation.Controllers.V1;
+
+[ApiVersion(2)]
 public class ProductsController : ApiController
 {
 
