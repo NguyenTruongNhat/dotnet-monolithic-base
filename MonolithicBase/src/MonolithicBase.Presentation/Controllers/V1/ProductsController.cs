@@ -7,6 +7,7 @@ using MonolithicBase.Presentation.Abstractions;
 namespace MonolithicBase.Presentation.Controllers.V1;
 public class ProductsController : ApiController
 {
+
     public ProductsController(ISender sender) : base(sender)
     {
     }
