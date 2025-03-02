@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 
-namespace MonolithicBase.Infrastructure.Dapper
+namespace MonolithicBase.Infrastructure.Dapper;
+
+public static class AssemblyReference
 {
-    internal class AssemblyReference
-    {
-    }
+    public static readonly Assembly Assembly = typeof(AssemblyReference).Assembly;
 }
+

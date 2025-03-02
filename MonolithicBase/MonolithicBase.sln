@@ -5,8 +5,6 @@ VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonolithicBase.API", "src\MonolithicBase.API\MonolithicBase.API.csproj", "{66DD2EA4-EB25-4717-8AAB-BE1DE3DD5F0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonolithicBase.Application", "src\MonolithicBase.Application\MonolithicBase.Application.csproj", "{D4501718-8920-4DC5-BD8E-DE4AA839F4A3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonolithicBase.Contract", "src\MonolithicBase.Contract\MonolithicBase.Contract.csproj", "{4A095E28-6A27-4C8F-B35F-42BFD1AAE129}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonolithicBase.Domain", "src\MonolithicBase.Domain\MonolithicBase.Domain.csproj", "{3450B57D-AEF1-4814-A42F-C1E81B86823D}"
@@ -32,6 +30,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonolithicBase.Application", "src\MonolithicBase.Application\MonolithicBase.Application.csproj", "{8A378333-AFBB-4138-B478-9D1601D71F93}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,10 +42,6 @@ Global
 		{66DD2EA4-EB25-4717-8AAB-BE1DE3DD5F0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66DD2EA4-EB25-4717-8AAB-BE1DE3DD5F0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66DD2EA4-EB25-4717-8AAB-BE1DE3DD5F0A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D4501718-8920-4DC5-BD8E-DE4AA839F4A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D4501718-8920-4DC5-BD8E-DE4AA839F4A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D4501718-8920-4DC5-BD8E-DE4AA839F4A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D4501718-8920-4DC5-BD8E-DE4AA839F4A3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4A095E28-6A27-4C8F-B35F-42BFD1AAE129}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4A095E28-6A27-4C8F-B35F-42BFD1AAE129}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A095E28-6A27-4C8F-B35F-42BFD1AAE129}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -74,13 +70,16 @@ Global
 		{C1DB8B16-B604-44E2-B22B-07A5F9836215}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1DB8B16-B604-44E2-B22B-07A5F9836215}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1DB8B16-B604-44E2-B22B-07A5F9836215}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A378333-AFBB-4138-B478-9D1601D71F93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A378333-AFBB-4138-B478-9D1601D71F93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A378333-AFBB-4138-B478-9D1601D71F93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A378333-AFBB-4138-B478-9D1601D71F93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{66DD2EA4-EB25-4717-8AAB-BE1DE3DD5F0A} = {34282D6F-9BBA-4702-B18A-A32130F73F3D}
-		{D4501718-8920-4DC5-BD8E-DE4AA839F4A3} = {34282D6F-9BBA-4702-B18A-A32130F73F3D}
 		{4A095E28-6A27-4C8F-B35F-42BFD1AAE129} = {34282D6F-9BBA-4702-B18A-A32130F73F3D}
 		{3450B57D-AEF1-4814-A42F-C1E81B86823D} = {34282D6F-9BBA-4702-B18A-A32130F73F3D}
 		{E94A578A-AFDF-469E-82D5-2E10B49BB887} = {34282D6F-9BBA-4702-B18A-A32130F73F3D}
@@ -88,5 +87,6 @@ Global
 		{96A022F8-7D01-4B4B-A373-64F2E65712AF} = {34282D6F-9BBA-4702-B18A-A32130F73F3D}
 		{B7DEBFAB-41C2-4833-B716-AF08A8FF5319} = {34282D6F-9BBA-4702-B18A-A32130F73F3D}
 		{C1DB8B16-B604-44E2-B22B-07A5F9836215} = {D3D20936-9A99-4AD3-8609-4D03AB5606E3}
+		{8A378333-AFBB-4138-B478-9D1601D71F93} = {34282D6F-9BBA-4702-B18A-A32130F73F3D}
 	EndGlobalSection
 EndGlobal
