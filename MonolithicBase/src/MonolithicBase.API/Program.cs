@@ -1,3 +1,4 @@
+using MonolithicBase.Application.DependencyInjection.Extensions;
 using MonolithicBase.Persistence.DependencyInjection.Extensions;
 using MonolithicBase.Persistence.DependencyInjection.Options;
 
@@ -5,9 +6,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddConfigureMediatR();
 
-
+builder
+    .Services
+    .AddControllers()
+    .AddApplicationPart(MonolithicBase.Presentation.AssemblyReference.Assembly);
 
 // Configure Options and SQL
 builder.Services.ConfigureSqlServerRetryOptions(builder.Configuration.GetSection(nameof(SqlServerRetryOptions)));

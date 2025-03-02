@@ -6,4 +6,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MonolithicBase.Contract\MonolithicBase.Contract.csproj" />
+    <ProjectReference Include="..\MonolithicBase.Domain\MonolithicBase.Domain.csproj" />
+    <ProjectReference Include="..\MonolithicBase.Persistence\MonolithicBase.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>
