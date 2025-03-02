@@ -14,8 +14,18 @@
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
     <PackageReference Include="FluentAssertions" Version="8.1.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="NetArchTest.Rules" Version="1.3.2" />
     <PackageReference Include="xunit" Version="2.5.3" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\MonolithicBase.API\MonolithicBase.API.csproj" />
+    <ProjectReference Include="..\..\src\MonolithicBase.Application\MonolithicBase.Application.csproj" />
+    <ProjectReference Include="..\..\src\MonolithicBase.Domain\MonolithicBase.Domain.csproj" />
+    <ProjectReference Include="..\..\src\MonolithicBase.Infrastructure\MonolithicBase.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\MonolithicBase.Persistence\MonolithicBase.Persistence.csproj" />
+    <ProjectReference Include="..\..\src\MonolithicBase.Presentation\MonolithicBase.Presentation.csproj" />
   </ItemGroup>
 
   <ItemGroup>
