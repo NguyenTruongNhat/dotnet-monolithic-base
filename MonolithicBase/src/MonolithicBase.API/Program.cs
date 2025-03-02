@@ -31,6 +31,8 @@ builder.Services.ConfigureSqlServerRetryOptions(builder.Configuration.GetSection
 builder.Services.AddSqlConfiguration();
 builder.Services.AddRepositoryBaseConfiguration();
 
+builder.Services.AddConfigureAutoMapper();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 builder.Services
