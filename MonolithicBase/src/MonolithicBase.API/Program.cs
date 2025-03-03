@@ -1,3 +1,4 @@
+using Carter;
 using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using MonolithicBase.API.DependencyInjection.Extensions;
 using MonolithicBase.API.Middleware;
@@ -5,6 +6,7 @@ using MonolithicBase.Application.DependencyInjection.Extensions;
 using MonolithicBase.Infrastructure.Dapper.DependencyInjection.Extensions;
 using MonolithicBase.Persistence.DependencyInjection.Extensions;
 using MonolithicBase.Persistence.DependencyInjection.Options;
+using MonolithicBase.Presentation.APIs.Products;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,6 +39,8 @@ builder.Services.AddRepositoryBaseConfiguration();
 
 builder.Services.AddConfigureAutoMapper();
 
+builder.Services.AddCarter();
+
 // Configure Dapper
 builder.Services.AddInfrastructureDapper();
 
@@ -61,6 +65,11 @@ var app = builder.Build();
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 
+// Add API Endpoint
+app.NewVersionedApi("products-minimal-show-on-swagger").MapProductApiV1().MapProductApiV2();
+
+// Add API Endpoint with carter module
+app.MapCarter();
 
 // Configure the HTTP request pipeline.
 if (builder.Environment.IsDevelopment() || builder.Environment.IsStaging())
