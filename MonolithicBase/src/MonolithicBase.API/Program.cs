@@ -1,5 +1,6 @@
 using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using MonolithicBase.API.DependencyInjection.Extensions;
+using MonolithicBase.API.Middleware;
 using MonolithicBase.Application.DependencyInjection.Extensions;
 using MonolithicBase.Persistence.DependencyInjection.Extensions;
 using MonolithicBase.Persistence.DependencyInjection.Options;
@@ -26,6 +27,8 @@ builder
     .AddControllers()
     .AddApplicationPart(MonolithicBase.Presentation.AssemblyReference.Assembly);
 
+builder.Services.AddTransient<ExceptionHandlingMiddleware>();
+
 // Configure Options and SQL
 builder.Services.ConfigureSqlServerRetryOptions(builder.Configuration.GetSection(nameof(SqlServerRetryOptions)));
 builder.Services.AddSqlConfiguration();
@@ -51,6 +54,9 @@ builder.Services
 
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
+
 
 // Configure the HTTP request pipeline.
 if (builder.Environment.IsDevelopment() || builder.Environment.IsStaging())
