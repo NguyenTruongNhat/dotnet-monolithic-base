@@ -2,6 +2,7 @@ using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using MonolithicBase.API.DependencyInjection.Extensions;
 using MonolithicBase.API.Middleware;
 using MonolithicBase.Application.DependencyInjection.Extensions;
+using MonolithicBase.Infrastructure.Dapper.DependencyInjection.Extensions;
 using MonolithicBase.Persistence.DependencyInjection.Extensions;
 using MonolithicBase.Persistence.DependencyInjection.Options;
 using Serilog;
@@ -35,6 +36,9 @@ builder.Services.AddSqlConfiguration();
 builder.Services.AddRepositoryBaseConfiguration();
 
 builder.Services.AddConfigureAutoMapper();
+
+// Configure Dapper
+builder.Services.AddInfrastructureDapper();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 

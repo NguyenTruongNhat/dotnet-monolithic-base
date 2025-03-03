@@ -13,6 +13,6 @@ public class ServiceProfile : Profile
         CreateMap<PagedResult<Product>, PagedResult<Response.ProductResponse>>().ReverseMap();
 
         // V2
-        //CreateMap<Product, Contract.Services.V2.Product.Response.ProductResponse>().ReverseMap();
+        CreateMap<Product, Contract.Services.V2.Product.Response.ProductResponse>().ReverseMap();
     }
 }

@@ -3,16 +3,13 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MonolithicBase.Contract.Abstractions.Shared;
-using MonolithicBase.Contract.Extensions;
-using MonolithicBase.Contract.Services.V1.Product;
+using MonolithicBase.Contract.Services.V2.Product;
 using MonolithicBase.Presentation.Abstractions;
 
-namespace MonolithicBase.Presentation.Controllers.V1;
-
-[ApiVersion(1)]
+namespace MonolithicBase.Presentation.Controllers.V2;
+[ApiVersion(2)]
 public class ProductsController : ApiController
 {
-
     public ProductsController(ISender sender) : base(sender)
     {
     }
@@ -23,28 +20,37 @@ public class ProductsController : ApiController
     public async Task<IActionResult> Products([FromBody] Command.CreateProductCommand CreateProduct)
     {
         var result = await Sender.Send(CreateProduct);
-
-        if (result.IsFailure)
-            return HandlerFailure(result);
-
         return Ok(result);
     }
+
+    //[HttpGet(Name = "GetProducts")]
+    //[ProducesResponseType(typeof(Result<IEnumerable<Response.ProductResponse>>), StatusCodes.Status200OK)]
+    //[ProducesResponseType(StatusCodes.Status404NotFound)]
+    //public async Task<IActionResult> Products(string? serchTerm = null,
+    //    string? sortColumn = null,
+    //    string? sortOrder = null,
+    //    string? sortColumnAndOrder = null,
+    //    int pageIndex = 1,
+    //    int pageSize = 10)
+    //{
+    //    //var sort = !string.IsNullOrWhiteSpace(sortOrder)
+    //    //    ? sortOrder.Equals("Asc")
+    //    //    ? SortOrder.Ascending : SortOrder.Descending : SortOrder.Descending;
+
+    //    var result = await Sender.Send(new Query.GetProductsQuery(serchTerm, sortColumn,
+    //        SortOrderExtension.ConvertStringToSortOrder(sortOrder),
+    //        SortOrderExtension.ConvertStringToSortOrderV2(sortColumnAndOrder),
+    //        pageIndex,
+    //        pageSize));
+    //    return Ok(result);
+    //}
 
     [HttpGet(Name = "GetProducts")]
     [ProducesResponseType(typeof(Result<IEnumerable<Response.ProductResponse>>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> Products(string? serchTerm = null,
-       string? sortColumn = null,
-       string? sortOrder = null,
-       string? sortColumnAndOrder = null,
-       int pageIndex = 1,
-       int pageSize = 10)
+    public async Task<IActionResult> Products()
     {
-        var result = await Sender.Send(new Query.GetProductsQuery(serchTerm, sortColumn,
-            SortOrderExtension.ConvertStringToSortOrder(sortOrder),
-            SortOrderExtension.ConvertStringToSortOrderV2(sortColumnAndOrder),
-            pageIndex,
-            pageSize));
+        var result = await Sender.Send(new Query.GetProductsQuery());
         return Ok(result);
     }
 
@@ -75,5 +81,5 @@ public class ProductsController : ApiController
         var result = await Sender.Send(updateProductCommand);
         return Ok(result);
     }
-
 }
+
